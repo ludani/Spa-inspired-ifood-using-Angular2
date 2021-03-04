@@ -1,0 +1,5 @@
+Roda aplicativo 
+ng serve
+
+rodando API 
+json-server db.json
