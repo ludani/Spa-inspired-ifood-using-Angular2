@@ -10,5 +10,9 @@ export const ROUTES: Routes = [
     {path:'', component: HomeComponent},
     {path: 'restaurants', component: RestaurantsComponent},
     {path:'restaurants/:id', component: RestaurantsDetailComponent},
+        children: [
+            {}
+            {}
+        ]
     {path:'about', component: AboutComponent},
 ]
