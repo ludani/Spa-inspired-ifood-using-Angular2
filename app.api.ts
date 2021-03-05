@@ -1,1 +1,0 @@
-export const MEAT_API = 'http://http://localhost:3000/'
