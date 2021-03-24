@@ -18,6 +18,7 @@ import { MenuComponent } from './restaurants-detail/menu/menu.component';
 import { ShoppingCarComponent } from './restaurants-detail/shopping-car/shopping-car.component';
 import { MenuItemComponent } from './restaurants-detail/menu-item/menu-item.component';
 import { ReviewsComponent } from './restaurants-detail/reviews/reviews.component';
+import { ShoppingCartService } from './restaurants-detail/shopping-car/shopping-car-service';
 
 
 @NgModule({
@@ -40,7 +41,7 @@ import { ReviewsComponent } from './restaurants-detail/reviews/reviews.component
     //IMPORTANDO ROTAS
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [RestaurantsServices],
+  providers: [RestaurantsServices, ShoppingCartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
