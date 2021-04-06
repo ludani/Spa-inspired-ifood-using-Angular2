@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
@@ -41,7 +41,7 @@ import { ShoppingCartService } from './restaurants-detail/shopping-car/shopping-
     //IMPORTANDO ROTAS
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [RestaurantsServices, ShoppingCartService],
+  providers: [RestaurantsServices, ShoppingCartService, {provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
