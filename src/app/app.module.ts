@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
 // IMPORTANTO ROTAS
 import {ROUTES} from './app.routes';
@@ -19,6 +20,7 @@ import { ShoppingCarComponent } from './restaurants-detail/shopping-car/shopping
 import { MenuItemComponent } from './restaurants-detail/menu-item/menu-item.component';
 import { ReviewsComponent } from './restaurants-detail/reviews/reviews.component';
 import { ShoppingCartService } from './restaurants-detail/shopping-car/shopping-car-service';
+import { OrderComponent } from './order/order.component';
 
 
 @NgModule({
@@ -33,11 +35,13 @@ import { ShoppingCartService } from './restaurants-detail/shopping-car/shopping-
     MenuComponent,
     ShoppingCarComponent,
     MenuItemComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    FormsModule,
     //IMPORTANDO ROTAS
     RouterModule.forRoot(ROUTES)
   ],
