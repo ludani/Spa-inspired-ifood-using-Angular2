@@ -22,7 +22,10 @@ import { ReviewsComponent } from './restaurants-detail/reviews/reviews.component
 import { ShoppingCartService } from './restaurants-detail/shopping-car/shopping-car-service';
 import { OrderComponent } from './order/order.component';
 import { InputComponent } from '../app/shared/input/input.component';
-import { RadioComponent } from './shared/radio/radio.component'
+import { RadioComponent } from './shared/radio/radio.component';
+import { OrderItemsComponent } from '../app/order/order-items/order-items.component'
+import { OrderService } from './order/order.service';
+import { DeliveryCostsComponent } from '././order/delivery-costs/delivery-costs.component';
 
 
 @NgModule({
@@ -40,7 +43,9 @@ import { RadioComponent } from './shared/radio/radio.component'
     ReviewsComponent,
     OrderComponent,
     InputComponent,
-    RadioComponent
+    RadioComponent,
+    OrderItemsComponent,
+    DeliveryCostsComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +54,7 @@ import { RadioComponent } from './shared/radio/radio.component'
     //IMPORTANDO ROTAS
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [RestaurantsServices, ShoppingCartService, {provide: LOCALE_ID, useValue: 'pt-BR'}],
+  providers: [RestaurantsServices, ShoppingCartService, OrderService, {provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
