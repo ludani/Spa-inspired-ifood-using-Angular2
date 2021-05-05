@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 // IMPORTANTO ROTAS
 import {ROUTES} from './app.routes';
@@ -55,6 +55,7 @@ import { RatingComponent } from './shared/rating/rating.component';
     BrowserModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     //IMPORTANDO ROTAS
     RouterModule.forRoot(ROUTES)
   ],
