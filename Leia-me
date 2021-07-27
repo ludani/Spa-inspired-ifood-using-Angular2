@@ -1,4 +1,5 @@
 Roda aplicativo 
+npm install
 ng serve
 
 rodando API 

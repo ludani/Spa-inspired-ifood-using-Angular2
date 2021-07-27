@@ -4,7 +4,7 @@ import { RadioOption } from "app/shared/radio/radio-option-model";
 import { Order, OrderItem } from "./order.model";
 import { OrderService } from "./order.service";
 import {Router} from '@angular/router';
-import {FormGroup, FormBuilder} from '@angular/forms';
+import {FormGroup, FormBuilder, Validator, Validators, AbstractControl} from '@angular/forms';
 
 @Component({
   selector: "mt-order",
@@ -12,6 +12,9 @@ import {FormGroup, FormBuilder} from '@angular/forms';
 })
 export class OrderComponent implements OnInit {
 
+  emailPatter = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+  numberPatter = /^[0-9]*$/
+  
   orderForm: FormGroup;
 
   delivery: number = 8;
@@ -25,15 +28,27 @@ export class OrderComponent implements OnInit {
 
   ngOnInit() {
     this.orderForm = this.formBuilder.group({
-      name: this.formBuilder.control(''),
-      email: this.formBuilder.control(''),
-      emailConfirmation: this.formBuilder.control(''),
-      address: this.formBuilder.control(''),
-      number: this.formBuilder.control(''),
+      name: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
+      email: this.formBuilder.control('', [Validators.required, Validators.pattern(this.emailPatter)]),
+      emailConfirmation: this.formBuilder.control('', [Validators.required, Validators.pattern(this.emailPatter)]),
+      address: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
+      number: this.formBuilder.control('', [Validators.required, Validators.pattern(this.numberPatter)]),
       optionalAddress: this.formBuilder.control(''),
-      paymentOption: this.formBuilder.control('')
+      paymentOption: this.formBuilder.control('', [Validators.required, Validators.pattern(this.numberPatter)])
+    }, {validator: OrderComponent.equalsTo})
+  }
 
-    })
+  static equalsTo(group: AbstractControl): {[key: string]: boolean} {
+    const email = group.get('email')
+    const emailConfirmation = group.get('emailConfirmation')
+    if (!email || !emailConfirmation) {
+      return undefined
+    }
+    if (email.value !== emailConfirmation.value) {
+      return {emailsNotMatch: true}
+    }
+    return undefined
+
   }
 
   itemsValue(): number {
