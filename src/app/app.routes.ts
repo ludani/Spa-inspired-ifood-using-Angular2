@@ -3,7 +3,6 @@ import {Routes} from '@angular/router';
 import { HomeComponent } from 'app/home/home.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantsDetailComponent } from './restaurants-detail/restaurants-detail.component';
-import { AboutComponent } from 'app/about/about.component';
 import { MenuComponent } from './restaurants-detail/menu/menu.component';
 import { ReviewsComponent } from './restaurants-detail/reviews/reviews.component';
 import { OrderComponent } from './order/order.component';
@@ -22,5 +21,5 @@ export const ROUTES: Routes = [
         ]},
     {path: 'order', component: OrderComponent},
     {path: 'order-summary', component: OrderSummaryComponent},
-    {path:'about', component: AboutComponent},
+    {path:'about', loadChildren: './about/about.module#AboutModule'},
 ]
