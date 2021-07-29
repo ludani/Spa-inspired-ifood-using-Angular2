@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { PreloadAllModules, RouterModule } from '@angular/router';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 // IMPORTANTO ROTAS
 import {ROUTES} from './app.routes';
 
@@ -33,6 +34,7 @@ import { SharedModule } from './shared/shared.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpModule,
     SharedModule.forRoot(),
     //IMPORTANDO ROTAS
